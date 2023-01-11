@@ -79,14 +79,14 @@ class DrawingView(context: Context,attrs: AttributeSet) : View(context,attrs) {
             }
             else -> return false
 
-            }
-                invalidate()
-                return true
-            }
-
+        }
+        invalidate()
+        return true
     }
 
-   internal class CustomPath(var color: Int, var brushThickness:Float):Path() {
+}
 
-    }
+internal class CustomPath(var color: Int, var brushThickness:Float):Path() {
+
+}
 
