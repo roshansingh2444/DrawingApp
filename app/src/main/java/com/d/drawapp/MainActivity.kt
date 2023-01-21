@@ -48,10 +48,26 @@ class MainActivity : AppCompatActivity() {
         })
 
         val largeBtn: ImageButton = brushDialog.findViewById(R.id.ib_large_brush)
-        largeBtn.setOnClickListener(View.OnClickListener {
+        largeBtn.setOnClickListener {
             drawingView?.setSizeForBrush(30.toFloat())
             brushDialog.dismiss()
-        })
+        }
         brushDialog.show()
+    }
+    fun paintClicked(view : View){
+        if(view !== mImageButtonCurrentPaint){
+            val imageButton = view as ImageButton
+            val colorTag = imageButton.tag.toString()
+            drawingView?.setColor(colorTag)
+
+            imageButton.setImageDrawable(
+                ContextCompat.getDrawable(this,R.drawable.pallet_pressed)
+            )
+            imageButton.setImageDrawable(
+                ContextCompat.getDrawable(this,R.drawable.pallet_normal)
+            )
+            mImageButtonCurrentPaint = view
+
+        }
     }
 }
